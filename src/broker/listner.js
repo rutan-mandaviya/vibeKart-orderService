@@ -6,7 +6,7 @@ const orderModel = require('../model/order.model');
 module.exports = async function (){
 
 
-    subscribeToQueue("order_service_payment_completed", async (data) => {
+    subscribeToQueue("order_service_Confirmed", async (data) => {
         await orderModel.findByIdAndUpdate(data.order, { status: data.status });
     });
 }
